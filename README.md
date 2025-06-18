@@ -90,7 +90,7 @@ Définit la structure des données attendues côté API.
 
 ---
 
-## 🧭 Structure du Client
+## Structure du Client
 
 
 ### └── `public/`
