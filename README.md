@@ -28,7 +28,7 @@ exit
 
 #### pour utiliser le client:
 ```
-http://localhost:8000
+http://localhost:8080
 ```
 
 #### fermer l’application et retirer les conteneurs
