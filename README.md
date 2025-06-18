@@ -26,6 +26,11 @@ echo yes | bin/console d:f:l
 exit
 ```
 
+#### pour utiliser le client:
+```
+http://localhost:8000
+```
+
 #### fermer l’application et retirer les conteneurs
 ```
 docker compose stop
