@@ -1,0 +1,35 @@
+services:
+    api:
+        container_name: api
+        build:
+            dockerfile: api/docker/Dockerfile
+        environment:
+            APP_SECRET: "503ae992c8adc2bf88064ad2ae206d2a"
+            DATABASE_URL: "mysql://root:root@mysql:3306/sogexia?serverVersion=8.0.32&charset=utf8mb4"
+            APP_SECRET_KEY: "SECRET_KEY"
+            APP_API_KEY: "API_KEY"
+        restart: always
+        ports:
+            - "8000:80"
+        depends_on:
+            - mysql
+
+    client:
+        build:
+            dockerfile: client/docker/Dockerfile
+        ports:
+            - "8080:80"
+        depends_on:
+            - api
+        environment:
+            API_BASE_URL: "http://api/api/v1"
+            APP_SECRET_KEY: "SECRET_KEY"
+            APP_API_KEY: "API_KEY"
+
+
+    mysql:
+        image: mysql:latest
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
